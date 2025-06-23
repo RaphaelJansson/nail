@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
-import { About } from "./components/about";
+import { Header } from "./components/header";
 import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
 import { Contact } from "./components/contact";
@@ -10,6 +10,7 @@ import SmoothScroll from "smooth-scroll";
 import { I18nProvider } from "./providers/language";
 import "./App.css";
 import Register from "./components/register";
+import { Why } from "./components/why";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -25,10 +26,11 @@ const App = () => {
   return (
     <I18nProvider>
       <Navigation />
-      <About data={landingPageData.About} />
+      <Header />
+      <Why data={landingPageData.Why} />
       <Services data={landingPageData.Services} />
       <Gallery data={landingPageData.Gallery} />
-      <Booking />
+      <Booking data={{ booking: landingPageData.Booking, services: landingPageData.Services }} />
       <Contact data={landingPageData.Contact} />
       <Register />
     </I18nProvider>

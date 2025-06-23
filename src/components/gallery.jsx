@@ -1,16 +1,14 @@
-import { Image } from "./image";
+import { useI18n } from "../providers/language";
+import { Image } from "./ui/image";
 import React from "react";
 
 export const Gallery = (props) => {
+  const { t } = useI18n();
   return (
     <div id="portfolio" className="text-center card">
       <div className="container">
         <div className="section-title">
-          <h2>Gallery</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
-          </p>
+          <h2>{t("gallery-title")}</h2>
         </div>
         <div className="row">
           <div className="portfolio-items">

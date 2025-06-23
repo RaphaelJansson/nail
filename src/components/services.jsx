@@ -1,16 +1,15 @@
 import React from "react";
-import { Image } from "./image";
+import { Image } from "./ui/image";
+import { useI18n } from "../providers/language";
 
 export const Services = (props) => {
+   const { t } = useI18n();
+
   return (
     <div id="services" className="text-center card">
       <div className="container">
         <div className="section-title">
-          <h2>Our Services</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
-          </p>
+          <h2>{t("services-title")}</h2>
         </div>
         <div >
           {props.data
@@ -20,13 +19,12 @@ export const Services = (props) => {
                 className="col-sm-5 col-md-4 col-lg-4"
               >
                 <div className="card-item">
-                <Image
-  title={d.title}
-  largeImage={d.largeImage}
-  smallImage={d.smallImage}
-  servicePrice={d.price}
-/>
-                  <h3 style={{ color: "#dd4f3c" }}>{d.service}</h3>
+                  <Image
+                    title={t(d.title)}
+                    largeImage={d.largeImage}
+                    smallImage={d.smallImage}
+                  />
+                  <h3>{t(d.service)}</h3>
                 </div>
               </div>
             ))

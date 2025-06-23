@@ -1582,24 +1582,19 @@ pre code {
   overflow-y: scroll;
 }
 .container {
+  width: auto;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
+/* @media (min-width: 768px) {
 }
 @media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
+} */
 @media (min-width: 1200px) {
-  .container {
-    width: 1170px;
+  .card {
+    max-width: 1170px;
   }
 }
 .container-fluid {
@@ -5968,7 +5963,13 @@ button.close {
   height: 50px;
   overflow: scroll;
 }
+
 @media (min-width: 768px) {
+  .card {
+    width: 100%;
+    padding: 0;
+  }
+
   .modal-dialog {
     width: 600px;
     margin: 30px auto;

@@ -20,8 +20,9 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
-            {t("brand")}
-          </a>{" "}
+            <img src="ThaysRamos-light.png" className="img-logo desktop-logo" alt="Thays Ramos logo" />
+            <img src="Favicon-light.png" className="img-logo mobile-logo" alt="Thays Ramos logo mobile" />
+          </a>
         </div>
 
         <div

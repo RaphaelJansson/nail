@@ -11,7 +11,7 @@ html {
 h2,
 h3,
 h4 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 h2 {
   text-transform: uppercase;
@@ -81,7 +81,7 @@ hr {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 #menu a.navbar-brand {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: #333;
@@ -132,6 +132,12 @@ hr {
 .navbar-toggle {
   border-radius: 0;
 }
+.icon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #fff;
@@ -141,7 +147,7 @@ hr {
   background-color: #dd4f3c;
 }
 .section-title {
-  margin-bottom: 70px;
+  margin-top: 30px;
 }
 .section-title h2 {
   position: relative;
@@ -163,7 +169,7 @@ hr {
   font-size: 18px;
 }
 .btn-custom {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
   text-transform: uppercase;
   color: #fff;
   background-color: #F38070;
@@ -203,6 +209,40 @@ a:focus,
   outline: none;
   outline-offset: none;
 }
+
+/* Mostrar apenas no desktop */
+.desktop-logo {
+  display: block;
+}
+
+.mobile-logo {
+  display: none !important;;
+}
+
+/* Mobile (até 767px) */
+@media (max-width: 767px) {
+  .desktop-logo {
+    display: none !important;
+  }
+
+  .mobile-logo {
+    display: block !important;
+    max-width: 75px !important;
+  }
+
+  .navbar-brand {
+    padding: 0;
+  }
+
+  .about-desc {
+    display: none !important;
+  }
+}
+
+.img-logo {
+  max-width: 160px;
+  height: auto;
+}
 /* Header Section */
 .intro {
   display: table;
@@ -219,7 +259,7 @@ a:focus,
   background: rgba(0, 0, 0, 0.2);
 }
 .intro h1 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
   color: #fff;
   font-size: 82px;
   font-weight: 700;
@@ -244,31 +284,23 @@ header .intro-text {
   padding-bottom: 200px;
   text-align: center;
 }
-/* Features Section */
-#features {
-  background: #f6f6f6;
-}
-#features i.fa {
-  font-size: 38px;
-  margin-bottom: 20px;
-  transition: all 0.5s;
-  color: #fff;
-  width: 100px;
-  height: 100px;
-  padding: 30px 0;
-  border-radius: 50%;
-  background: linear-gradient(to right, #dd4f3c 0%, #F38070 100%);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-}
 /* About Section */
 #about {
-  padding: 100px 0;
+  padding: 0;
+}
+#about .container {
+  display: flex;
+  align-items: center;
 }
 #about h3 {
   font-size: 22px;
   margin: 0 0 20px;
 }
 #about h2 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: italic;
+  color: #444;
   position: relative;
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -290,26 +322,69 @@ header .intro-text {
 }
 #about .about-text li:before {
   content: "\f00c";
-  font-family: "FontAwesome";
   color: #F38070;
   font-size: 11px;
   font-weight: 300;
   padding-right: 8px;
 }
 #about img {
-  width: 520px;
+  width: 325px;
   margin-top: 10px;
-  background: #fff;
   border-right: 0;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 #about p {
   line-height: 24px;
   margin: 30px 0;
 }
+#about a {
+  margin: 0px 30px;
+}
+/* why Section */
+#why {
+  padding: 10px 0;
+  background: #E1E1E1;
+  color: #fff;
+}
+#why .container {
+  max-width: 1170px;
+}
+
+#why .service-desc {
+  margin: 10px 10px 20px;
+}
+#why h2 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: italic;
+  font-size: x-large;
+  color: #444;
+}
+#why .section-title h2::after {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 60px;
+  bottom: 0;
+  margin-left: -30px;
+  left: 50%;
+}
+#why h3 {
+  margin-top: 0;
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
+  color: #444;
+}
+#why p {
+  font-family: 'Lato';
+  font-weight: 400;
+  font-style: normal;
+  color: #444;
+}
 /* Services Section */
 #services {
-  padding: 100px 0;
+  padding: 10px 0 30px;
   background: linear-gradient(to right, #dd4f3c 0%, #F38070 100%);
   color: #fff;
 }
@@ -317,6 +392,10 @@ header .intro-text {
   margin: 10px 10px 20px;
 }
 #services h2 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: normal;
+  font-size: x-large;
   color: #fff;
 }
 #services .section-title h2::after {
@@ -333,16 +412,18 @@ header .intro-text {
   font-size: 42px;
   width: 120px;
   height: 120px;
-  padding: 40px 0;
   background: linear-gradient(to right, #dd4f3c 0%, #F38070 100%);
   border-radius: 50%;
   color: #fff;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 #services h3 {
-  font-weight: 500;
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: normal;
+  font-size: x-large;
   padding: 5px 0;
-  color: #fff;
+    color: #444;
 }
 #services p {
   color: rgba(255, 255, 255, 0.75);
@@ -352,11 +433,70 @@ header .intro-text {
 }
 /* Portfolio Section */
 #portfolio {
-  padding: 100px 0;
+  padding: 10px 0;
 }
+
+#portfolio .container {
+  max-width: 1170px;
+}
+
+#portfolio h2 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: italic;
+  font-size: x-large;
+  color: #444;
+}
+
+.portfolio-item {
+  margin: 1px -15px 0 -14px;
+  padding: 0;
+}
+
+.portfolio-item .hover-bg {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+/* booking Section */
+#booking {
+  padding: 10px 0;
+}
+
+#booking .container {
+  max-width: 1170px;
+}
+
+#booking h2 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: italic;
+  font-size: x-large;
+  color: #444;
+}
+
+.booking-item {
+  margin: 1px -15px 0 -14px;
+  padding: 0;
+}
+
+.booking-item .hover-bg {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+
 .card {
   background: #fff;
   width: 90%;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card-full {
+  background: #fff;
+  width: 100%;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   padding: 20px;
@@ -367,18 +507,128 @@ header .intro-text {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   padding: 30px;
-  margin: 10px;
 }
 
-.portfolio-item {
-  margin: 1px -15px 0 -14px;
+/* Calendar Base */
+.calendar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.calendar-header button {
+  padding: 4px 10px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #444;
+}
+
+.calendar-weekdays {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.calendar-week {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.button-calendar {
+  width: 36px;
+  height: 36px;
   padding: 0;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
 }
-.portfolio-item .hover-bg {
-  overflow: hidden;
-  position: relative;
-  margin: 0;
+
+#booking {
+  background: #E1E1E1;
 }
+
+#booking h3 {
+  font-family: 'Playwrite';
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
+  color: #444;
+}
+.button-calendar.selected {
+  border: 2px solid #dd4f3c;
+}
+
+.button-calendar.dimmed {
+  background: #f0f0f0;
+}
+
+.button:hover {
+  background: linear-gradient(to right, #dd4f3c, #F38070);
+  color: #fff;
+}
+
+.button-calendar:disabled {
+  border: none;
+  background: none;
+  color: #999;
+  cursor: default;
+}
+
+.calendar-times-title {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.button-hour {
+  width: 46px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
 .hover-bg .hover-text {
   position: absolute;
   text-align: center;
@@ -613,19 +863,4 @@ label {
 }
 #footer a:hover {
   border-bottom: 2px solid #608dfd;
-}
-
-@media (max-width: 768px) {
-  #about img {
-    margin: 50px 0;
-  }
-  .card {
-    width: 100%;
-    padding: 0;
-  }
-
-  /* #header {
-    flex-direction: column !important;
-    text-align: center;
-  } */
 }
