@@ -1,32 +1,45 @@
-export const Image = ({ title, largeImage, smallImage, servicePrice, hover = false }) => {
+import { useState, useEffect } from "react";
+import { useI18n } from "../../providers/language";
+
+export const Image = ({ title, smallImage, hover = false, price = false }) => {
+  const [hoverActive, setHoverActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+     const { t } = useI18n();
+
+  useEffect(() => {
+    // detecta se está em mobile
+    setIsMobile(window.innerWidth <= 767);
+  }, []);
+
+  function handleClick() {
+    if (isMobile && !hoverActive) {
+      setHoverActive(true);
+    }
+  }
+
   return (
-    <div className="portfolio-item" style={{ position: "relative" }}>
+    <div
+      className="portfolio-item"
+      style={{ position: "relative" }}
+      onClick={handleClick}
+    >
       <div className={hover ? "hover-bg" : undefined}>
-        <a href={largeImage} title={title} data-lightbox-gallery="gallery1">
-          {hover && (
-            <div className="hover-text">
-              <h4>{title}</h4>
-            </div>
-          )}
-          <img src={smallImage} className="img-responsive" alt={title} />
-          {servicePrice && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: "10px",
-                right: "10px",
-                background: "rgba(255, 255, 255, 0.9)",
-                color: "#dd4f3c",
-                padding: "6px 10px",
-                borderRadius: "6px",
-                fontWeight: "600",
-                fontSize: "14px",
-              }}
-            >
-              {servicePrice}
-            </div>
-          )}
-        </a>
+        {hover && (
+          <div className="hover-text">
+            <h4>{title}</h4>
+            {(!isMobile || hoverActive) && (
+             <a 
+             href="#booking" 
+             className="btn btn-custom page-scroll"
+             style={{ padding: "7px 17px", fontSize: "11px" }}>
+                {t("consult")}
+              </a>
+            )}
+          </div>
+        )}
+        <img src={smallImage} className="img-responsive" alt={title} />
+        {price && <div className="euro-overlay">€</div>}
       </div>
     </div>
   );

@@ -23,13 +23,15 @@ const App = () => {
     setLandingPageData(JsonData);
   }, []);
 
+  console.log("Landing Page Data:", landingPageData);
+
   return (
     <I18nProvider>
       <Navigation />
       <Header />
       <Why data={landingPageData.Why} />
       <Services data={landingPageData.Services} />
-      <Gallery data={landingPageData.Gallery} />
+      <Gallery data={{ gallery: landingPageData.Gallery, contact: landingPageData.Contact }} />
       <Booking data={{ booking: landingPageData.Booking, services: landingPageData.Services }} />
       <Contact data={landingPageData.Contact} />
       <Register />

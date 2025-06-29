@@ -63,29 +63,39 @@
   "Services": [
     {
       "title": "services-nail-gel",
+      "service": "services-nail-gel",
       "largeImage": "img/portfolio/07-large.jpg",
       "smallImage": "img/portfolio/07-small.jpg",
-      "service": "services-nail-gel",
-      "price": "$100"
+      "price": {
+        "saldanha": "$100",
+        "ajuda": "$120"
+      }
     },
     {
       "title": "services-nail-fiber",
+      "service": "services-nail-fiber",
       "largeImage": "img/portfolio/08-large.jpg",
       "smallImage": "img/portfolio/08-small.jpg",
-      "service": "services-nail-fiber",
-      "price": "$100"
+      "price": {
+        "saldanha": "$100",
+        "ajuda": "$130"
+      }
     },
     {
       "title": "services-nail-maintance",
+      "service": "services-nail-maintance",
       "largeImage": "img/portfolio/09-large.jpg",
       "smallImage": "img/portfolio/09-small.jpg",
-      "service": "services-nail-maintance",
-      "price": "$20"
+      "price": {
+        "saldanha": "$20",
+        "ajuda": "$30"
+      }
     }
   ],
   "Booking": [
     {
-      "salon": {
+      "saldanha": {
+        "link": "https://maps.app.goo.gl/ED6S8ZQempif9vaR6",
         "allowedDays": {
           "1": {
             "start": 10,
@@ -111,7 +121,8 @@
       }
     },
     {
-      "home": {
+      "ajuda": {
+        "link": "https://maps.app.goo.gl/D8WW6UDcQtj5jh9k9",
         "allowedDays": {
           "0": {
             "start": 14,
@@ -121,11 +132,11 @@
             "start": 10,
             "end": 22
           },
-           "2": {
+          "2": {
             "start": 10,
             "end": 18
           },
-           "3": {
+          "3": {
             "start": 10,
             "end": 18
           },
@@ -145,34 +156,13 @@
       }
     }
   ],
-  "Team": [
-    {
-      "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
-    },
-    {
-      "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
-    },
-    {
-      "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
-    },
-    {
-      "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
-    }
-  ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
+    "addresses": [
+      { "name": "Ajuda", "address": "California St, San Francisco, CA 12345 "},
+      { "name": "Saldanha", "address": "California St, San Francisco, CA 12345" }
+    ],
+    "phone": "+351 910831473",
     "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "instagram": "https://www.instagram.com/naildesign/"
   }
 }

@@ -19,7 +19,7 @@ export const Header = () => {
             <p className="about-desc">{t("about-desc")}</p>
             <div className="text-right">
               {/* <WhatsAppButton /> */}
-              <a href="#booking" className="btn btn-custom btn-lg page-scroll">
+              <a href="#booking" className="btn btn-custom page-scroll">
                 {t("booking")}
               </a>
             </div>

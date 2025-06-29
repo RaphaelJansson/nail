@@ -157,8 +157,9 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                     objectFit: "cover",
                   }}
                 />
-                <div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
                   <strong>{t(servico.service)}</strong>
+                  <strong>{servico.price[locationType]}</strong>
                 </div>
               </div>
             ))}

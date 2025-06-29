@@ -20,9 +20,11 @@ export const Services = (props) => {
               >
                 <div className="card-item">
                   <Image
-                    title={t(d.title)}
+                    title={t('price-by-location')}
                     largeImage={d.largeImage}
                     smallImage={d.smallImage}
+                    hover
+                    price
                   />
                   <h3>{t(d.service)}</h3>
                 </div>
