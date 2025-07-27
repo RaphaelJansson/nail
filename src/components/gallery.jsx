@@ -1,10 +1,8 @@
 import { useI18n } from "../providers/language";
-import { Image } from "./ui/image";
-import React from "react";
 
 export const Gallery = ({ data }) => {
   console.log("Gallery props", data);
-  const galleryData = data?.gallery || [];
+  // const galleryData = data?.gallery || [];
   const contactData = data?.contact || {};
 
   const { t } = useI18n();
@@ -24,7 +22,7 @@ export const Gallery = ({ data }) => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#dd4f3c",
+              color: "var(--primary-color)",
               fontSize: "1.5rem",
               position: "absolute",
               right: 0,
@@ -37,7 +35,7 @@ export const Gallery = ({ data }) => {
         </div>
 
 
-        <div className="row">
+        {/* <div className="row">
           <div className="portfolio-items">
             {galleryData.map((d, i) => (
               <div
@@ -52,7 +50,7 @@ export const Gallery = ({ data }) => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

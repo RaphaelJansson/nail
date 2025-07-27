@@ -6,9 +6,10 @@ import HeaderWeek from "./headerWeek";
 import GridCalendar from "./gridCalendar";
 import { toLocalISODate } from "../../../util/toLocalISODate";
 import { useI18n } from "../../../providers/language";
+import { WhatsApp } from "../../../service/whatsApp";
 
-const API_KEY = "AIzaSyDzHa09zp-dEsPOTgtpQfrO-fLo4Usd5bU";
-const CALENDAR_ID = "raphaeljansson@gmail.com";
+const API_KEY = "AIzaSyCos8y4S6alkKXMOFU6WhxHbdOVoNcAfGY";
+const CALENDAR_ID = "licettithays25@gmail.com";
 const DISCOVERY_DOCS = [
   "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
 ];
@@ -94,6 +95,12 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
       setHorariosPorDia(horarios);
     });
   }, [currentMonth, scheduleConfig]);
+
+  const handleSendMessage = () => {
+    const whatsApp = new WhatsApp();
+    whatsApp.generateMessage(servicoSelecionado.service, locationType, diaSelecionado, horarioSelecionado, t);
+    whatsApp.sendMessage()
+  }
 
   return (
     <div
@@ -347,16 +354,13 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
             <p><strong>Horário:</strong> {horarioSelecionado}</p>
           </div>
           <button
-            onClick={() => {
-              alert("Agendado com sucesso!");
-              // Aqui você pode integrar com envio de evento ao Google Calendar
-            }}
+            onClick={handleSendMessage}
             className="button"
             style={{
               marginTop: "20px",
               width: "100%",
               padding: "12px",
-              backgroundColor: "#dd4f3c",
+              backgroundColor: "var(--primary-color)",
               color: "#fff",
               fontWeight: "bold",
               border: "none",

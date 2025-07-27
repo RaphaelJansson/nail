@@ -64,62 +64,32 @@
     {
       "title": "services-nail-gel",
       "service": "services-nail-gel",
-      "largeImage": "img/portfolio/07-large.jpg",
-      "smallImage": "img/portfolio/07-small.jpg",
+      "largeImage": "img/portfolio/nail-gel.jpeg",
+      "smallImage": "img/portfolio/nail-gel.jpeg",
       "price": {
-        "saldanha": "$100",
-        "ajuda": "$120"
+        "ajuda": "$15,00"
       }
     },
     {
-      "title": "services-nail-fiber",
-      "service": "services-nail-fiber",
-      "largeImage": "img/portfolio/08-large.jpg",
-      "smallImage": "img/portfolio/08-small.jpg",
+      "title": "services-varnish-gel",
+      "service": "services-varnish-gel",
+      "largeImage": "img/portfolio/nail-varnish.jpeg",
+      "smallImage": "img/portfolio/nail-varnish.jpeg",
       "price": {
-        "saldanha": "$100",
-        "ajuda": "$130"
+        "ajuda": "$10,00"
       }
     },
     {
-      "title": "services-nail-maintance",
-      "service": "services-nail-maintance",
-      "largeImage": "img/portfolio/09-large.jpg",
-      "smallImage": "img/portfolio/09-small.jpg",
+      "title": "services-nail",
+      "service": "services-nail",
+      "largeImage": "img/portfolio/nail-normal.jpeg",
+      "smallImage": "img/portfolio/nail-normal.jpeg",
       "price": {
-        "saldanha": "$20",
-        "ajuda": "$30"
+        "ajuda": "$5,00"
       }
     }
   ],
   "Booking": [
-    {
-      "saldanha": {
-        "link": "https://maps.app.goo.gl/ED6S8ZQempif9vaR6",
-        "allowedDays": {
-          "1": {
-            "start": 10,
-            "end": 18
-          },
-          "2": {
-            "start": 10,
-            "end": 18
-          },
-          "3": {
-            "start": 10,
-            "end": 18
-          },
-          "4": {
-            "start": 10,
-            "end": 18
-          },
-          "5": {
-            "start": 10,
-            "end": 18
-          }
-        }
-      }
-    },
     {
       "ajuda": {
         "link": "https://maps.app.goo.gl/D8WW6UDcQtj5jh9k9",
@@ -158,11 +128,11 @@
   ],
   "Contact": {
     "addresses": [
-      { "name": "Ajuda", "address": "California St, San Francisco, CA 12345 "},
-      { "name": "Saldanha", "address": "California St, San Francisco, CA 12345" }
+      { "name": "Ajuda", "address": "Rua Paz à ajuda, Ajuda - Lisboa, PT 1300-406"}
     ],
     "phone": "+351 910831473",
-    "email": "info@company.com",
-    "instagram": "https://www.instagram.com/naildesign/"
+    "email": "licettithays25@gmail.com",
+    "instagram": "https://www.instagram.com/thaysramos.nail/",
+    "whatsapp": "https://api.whatsapp.com/send?phone=351910831473&text=Hello%20Thays%20Ramos,%20I%20would%20like%20to%20book%20an%20appointment."
   }
 }

@@ -13,7 +13,7 @@ export const Why = (props) => {
         <div className="row justify-content-center text-center">
           {props.data
             ? props.data.map((d, i) => (
-              <div key={i} className="col-sm-4 col-md-4 col-lg-3 mb-4">
+              <div key={i} className="col-xs-6 col-sm-4 col-md-4 col-lg-3 mb-4">
                 <Icon
                   title={t(d.title)}
                   desc={t(d.paragraph)}

@@ -25,7 +25,7 @@ export const Booking = ({ data }) => {
             onClick={() => setLocationType("ajuda")}
             style={{
               padding: "8px 16px",
-              border: locationType === "ajuda" ? "2px solid #dd4f3c" : "1px solid #ccc",
+              border: locationType === "ajuda" ? "2px solid var(--primary-color)" : "1px solid #ccc",
               borderRadius: "6px",
               background: locationType === "ajuda" ? "#fff3f0" : "#fff",
               cursor: "pointer",
@@ -35,19 +35,6 @@ export const Booking = ({ data }) => {
             {t("booking-type-ajuda") || "At ajuda"}
           </button>
 
-          <button
-            onClick={() => setLocationType("saldanha")}
-            style={{
-              padding: "8px 16px",
-              border: locationType === "saldanha" ? "2px solid #dd4f3c" : "1px solid #ccc",
-              borderRadius: "6px",
-              background: locationType === "saldanha" ? "#fff3f0" : "#fff",
-              cursor: "pointer",
-              fontWeight: locationType === "saldanha" ? "bold" : "normal",
-            }}
-          >
-            {t("booking-type-saldanha") || "At the saldanha"}
-          </button>
         </div>
 
         {/* botão de localização abaixo das tabs */}
@@ -55,11 +42,12 @@ export const Booking = ({ data }) => {
           <a
             href={scheduleConfig?.link || "#"}
             target="_blank"
+             rel="noreferrer"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
-              color: "#dd4f3c",
+              color: "var(--primary-color)",
               fontWeight: "600",
               textDecoration: "none",
             }}
