@@ -69,6 +69,9 @@ a:focus {
   color: var(--primary-color);
 }
 
+.lang-switch-mobile { display: none; }
+.flag-img { width: 24px; }
+
 ul,
 ol {
   list-style: none;
@@ -343,6 +346,7 @@ header .intro-text {
 /* About Section */
 #about {
   padding: 0;
+  margin-top: 12vh;
 }
 
 #about .container {
@@ -927,6 +931,7 @@ i.fa {
   border-bottom: 2px solid var(--primary-color);
 }
 
+.lang-switch-desktop { display: flex; }
 /* Mobile (até 767px) */
 @media (max-width: 767px) {
   .desktop-logo {
@@ -956,6 +961,31 @@ i.fa {
     padding: 0px !important;
     font-size: 18px !important;
   }
+
+  #menu .navbar-toggle { display: none !important; }
+  #bs-example-navbar-collapse-1 { display: none !important; }
+
+  /* some a lista inteira no mobile (sem UL) */
+  .nav-desktop { display: none !important; }
+
+  /* mostra a flag mobile e posiciona à direita */
+  .lang-switch-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: #f9f9f9;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* garante contexto para a posição absoluta da flag */
+  #menu.navbar { position: relative; }
 
   #menu .navbar-nav {
     display: block !important;
@@ -995,6 +1025,10 @@ i.fa {
 
   #services h2 {
     font-size: large;
+  }
+
+  #about {
+    margin-top: 0;
   }
 
   #about h2 {

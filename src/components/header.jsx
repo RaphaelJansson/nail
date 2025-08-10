@@ -20,7 +20,7 @@ export const Header = () => {
 
 
   return (
-    <div id="about" className="card" style={{ marginTop: "12vh"}}>
+    <div id="about" className="card">
       <div className="container">
         <div className="col-xs-12 col-md-6 text-center" style={{ padding: 0}}>
           <img src="img/head.png" className="img-responsive center-block" alt="" />
