@@ -11,6 +11,7 @@ import { I18nProvider } from "./providers/language";
 import "./App.css";
 import Register from "./components/register";
 import { Why } from "./components/why";
+import { Analytics } from "@vercel/analytics/react"
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -35,6 +36,7 @@ const App = () => {
       <Booking data={{ booking: landingPageData.Booking, services: landingPageData.Services }} />
       <Contact data={landingPageData.Contact} />
       <Register />
+      <Analytics />
     </I18nProvider>
   );
 };

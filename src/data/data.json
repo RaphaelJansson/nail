@@ -67,7 +67,7 @@
       "largeImage": "img/portfolio/nail-gel.jpeg",
       "smallImage": "img/portfolio/nail-gel.jpeg",
       "price": {
-        "ajuda": "$15,00"
+        "ajuda": "€15,00"
       }
     },
     {
@@ -76,7 +76,7 @@
       "largeImage": "img/portfolio/nail-varnish.jpeg",
       "smallImage": "img/portfolio/nail-varnish.jpeg",
       "price": {
-        "ajuda": "$10,00"
+        "ajuda": "€10,00"
       }
     },
     {
@@ -85,7 +85,7 @@
       "largeImage": "img/portfolio/nail-normal.jpeg",
       "smallImage": "img/portfolio/nail-normal.jpeg",
       "price": {
-        "ajuda": "$5,00"
+        "ajuda": "€5,00"
       }
     }
   ],
