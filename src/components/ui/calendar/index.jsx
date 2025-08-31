@@ -114,7 +114,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
         width: "100%",
         maxWidth: "310px",
         margin: "0 auto",
-        minHeight: "450px",
+        minHeight: "min(450px, 70vh)",
         overflow: "visible",
       }}
     >
