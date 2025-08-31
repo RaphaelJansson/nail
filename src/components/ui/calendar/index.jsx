@@ -78,7 +78,10 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
               (e) => e.start < endSlot && e.end > startSlot
             );
 
-            if (!conflita) {
+            const isToday = dia.toDateString() === hoje.toDateString();
+            const isPastTime = isToday && startSlot <= hoje;
+
+            if (!conflita && !isPastTime) {
               horarios[dataISO].push(
                 startSlot.toLocaleTimeString("pt-PT", {
                   hour: "2-digit",
@@ -87,6 +90,8 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
               );
             }
           }
+        } else {
+          console.log(`No rules found for day ${diaSemana} (${dia.toDateString()})`);
         }
 
         dia.setDate(dia.getDate() + 1);
@@ -109,7 +114,8 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
         width: "100%",
         maxWidth: "310px",
         margin: "0 auto",
-        minHeight: "400px",
+        minHeight: "450px",
+        overflow: "visible",
       }}
     >
       {/* Etapa: SERVIÇOS */}

@@ -11,14 +11,14 @@ export const Booking = ({ data }) => {
     : null;
 
   return (
-    <div id="booking" className="text-center card">
-      <div className="container">
+    <div id="booking" className="text-center card" style={{ minHeight: "auto", height: "auto", overflow: "visible" }}>
+      <div className="container" style={{ minHeight: "auto", height: "auto", overflow: "visible" }}>
         <div className="section-title">
           <h2>{t("booking")}</h2>
         </div>
 
         {/* Tabs para escolher tipo */}
-        <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center", gap: "16px" }}>
+        {/* <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center", gap: "16px" }}>
           
 
           <button
@@ -35,7 +35,7 @@ export const Booking = ({ data }) => {
             {t("booking-type-ajuda") || "At ajuda"}
           </button>
 
-        </div>
+        </div> */}
 
         {/* botão de localização abaixo das tabs */}
         <div style={{ marginBottom: "10px" }}>

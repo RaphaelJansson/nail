@@ -25,7 +25,10 @@ export default function GridCalendar({
       const dataISO = toLocalISODate(data);
       const foraDoMes = data.getMonth() !== currentMonth.getMonth();
       const ativo = horariosPorDia[dataISO]?.length > 0;
-      const habilitado = ativo && !foraDoMes && data >= hoje;
+      // Compare dates without time to allow current day selection
+      const hojeDate = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+      const dataDate = new Date(data.getFullYear(), data.getMonth(), data.getDate());
+      const habilitado = ativo && !foraDoMes && dataDate >= hojeDate;
 
       const label = foraDoMes ? "..." : data.getDate().toString().padStart(2, "0");
 
