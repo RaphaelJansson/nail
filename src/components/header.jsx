@@ -23,7 +23,14 @@ export const Header = () => {
     <div id="about" className="card">
       <div className="container">
         <div className="col-xs-12 col-md-6 text-center" style={{ padding: 0}}>
-          <img src="img/head.png" className="img-responsive center-block" alt="" />
+          <img 
+            src="img/head.png" 
+            className="img-responsive center-block" 
+            alt="Thays Ramos professional nail artist showcasing nail art services in Lisboa"
+            loading="eager"
+            width="400"
+            height="300"
+          />
         </div>
         <div className="col-xs-12 col-md-6" style={{ padding: 0}}>
           <div className="about-text">

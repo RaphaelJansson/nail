@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useI18n } from "../../providers/language";
 
-export const Image = ({ title, smallImage, hover = false, price = false }) => {
+export const Image = ({ title, smallImage, hover = false, price = false, alt }) => {
   const [hoverActive, setHoverActive] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -38,7 +38,14 @@ export const Image = ({ title, smallImage, hover = false, price = false }) => {
             )}
           </div>
         )}
-        <img src={smallImage} className="img-responsive" alt={title} />
+        <img 
+          src={smallImage} 
+          className="img-responsive" 
+          alt={alt || title}
+          loading="lazy"
+          width="300"
+          height="200"
+        />
         {price && <div className="euro-overlay">€</div>}
       </div>
     </div>

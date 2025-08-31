@@ -1,3 +1,30 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemaps
+Sitemap: https://thaysramos.nail/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow important assets
+Allow: /static/
+Allow: /img/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+
+# Disallow temporary or admin files
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /src/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
