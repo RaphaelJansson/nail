@@ -11,8 +11,8 @@ export const Booking = ({ data }) => {
     : null;
 
   return (
-    <div id="booking" className="text-center card" style={{ minHeight: "auto", height: "auto", overflow: "visible", padding: "30px 0" }}>
-      <div className="container" style={{ minHeight: "auto", height: "auto", overflow: "visible", maxWidth: "100%" }}>
+    <div id="booking" className="text-center card" style={{ minHeight: "auto", height: "auto", overflow: "hidden", padding: "30px 0" }}>
+      <div className="container" style={{ minHeight: "auto", height: "auto", overflow: "hidden", maxWidth: "100%", padding: "0 15px" }}>
         <div className="section-title">
           <h2>{t("booking")}</h2>
         </div>

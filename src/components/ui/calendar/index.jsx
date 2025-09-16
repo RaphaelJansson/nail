@@ -136,8 +136,8 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
         width: "100%",
         maxWidth: "310px",
         margin: "0 auto",
-        minHeight: "min(450px, 70vh)",
-        overflow: "visible",
+        minHeight: "min(450px, 84vh)",
+        overflow: "hidden",
       }}
     >
       {/* Etapa: SERVIÇOS */}
@@ -169,8 +169,8 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
             <button
               onClick={() => setServiceType("hand")}
               style={{
-                padding: "6px 12px",
-                fontSize: "0.9rem",
+                padding: "8px 16px",
+                fontSize: "1.15rem",
                 border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
                 borderRadius: "6px",
                 background: serviceType === "hand" ? "#fff3f0" : "#fff",
@@ -185,8 +185,8 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
             <button
               onClick={() => setServiceType("foot")}
               style={{
-                padding: "6px 12px",
-                fontSize: "0.9rem",
+                padding: "8px 16px",
+                fontSize: "1rem",
                 border: serviceType === "foot" ? "2px solid var(--primary-color)" : "1px solid #ccc",
                 borderRadius: "6px",
                 background: serviceType === "foot" ? "#fff3f0" : "#fff",
@@ -215,7 +215,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: "8px",
+                    gap: "6px",
                     width: "calc(50% - 4px)",
                     minHeight: "120px",
                     backgroundColor: isSelected ? "#fff3f0" : "#fff",
@@ -245,15 +245,15 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                   src={servico.smallImage}
                   alt={servico.title}
                   style={{
-                    width: 70,
-                    height: 70,
+                    width: 60,
+                    height: 60,
                     borderRadius: "8px",
                     objectFit: "cover",
                   }}
                 />
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "1.35rem" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "1.15rem" }}>
                   <strong>{t(servico.service)}</strong>
-                  <strong>{servico.price[locationType]}</strong>
+                  <strong style={{ color: "var(--primary-color)" }}>{servico.price[locationType]}</strong>
                 </div>
               </div>
             );
@@ -458,9 +458,9 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
           <h3>{t("confirm-booking")}</h3>
           <div style={{ marginTop: "16px", fontSize: "1rem" }}>
             <p><strong>{servicosSelecionados.length === 1 ? t("service") : t("services")}:</strong></p>
-            <ul style={{ margin: "8px 0", paddingLeft: "20px", textAlign: "left" }}>
+            <ul style={{ margin: "8px 0", paddingLeft: "20px", textAlign: "left"}}>
               {servicosSelecionados.map((servico, idx) => (
-                <li key={idx} style={{ marginBottom: "4px" }}>
+                <li key={idx} style={{ marginBottom: "4px", fontSize: "1.15rem"   }}>
                   {t(servico.service)} - {servico.price[locationType]}
                 </li>
               ))}
