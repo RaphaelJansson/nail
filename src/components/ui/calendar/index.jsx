@@ -136,7 +136,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
         width: "100%",
         maxWidth: "310px",
         margin: "0 auto",
-        minHeight: "min(450px, 84vh)",
+        minHeight: "464px",
         overflow: "hidden",
       }}
     >
@@ -170,7 +170,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
               onClick={() => setServiceType("hand")}
               style={{
                 padding: "8px 16px",
-                fontSize: "1.15rem",
+                fontSize: "15px",
                 border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
                 borderRadius: "6px",
                 background: serviceType === "hand" ? "#fff3f0" : "#fff",
@@ -251,7 +251,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                     objectFit: "cover",
                   }}
                 />
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "1.15rem" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "15px" }}>
                   <strong>{t(servico.service)}</strong>
                   <strong style={{ color: "var(--primary-color)" }}>{servico.price[locationType]}</strong>
                 </div>
@@ -460,7 +460,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
             <p><strong>{servicosSelecionados.length === 1 ? t("service") : t("services")}:</strong></p>
             <ul style={{ margin: "8px 0", paddingLeft: "20px", textAlign: "left"}}>
               {servicosSelecionados.map((servico, idx) => (
-                <li key={idx} style={{ marginBottom: "4px", fontSize: "1.15rem"   }}>
+                <li key={idx} style={{ marginBottom: "4px", fontSize: "15px"   }}>
                   {t(servico.service)} - {servico.price[locationType]}
                 </li>
               ))}
