@@ -68,7 +68,9 @@
       "smallImage": "img/portfolio/nail-gel.jpeg",
       "price": {
         "ajuda": "€15,00"
-      }
+      },
+      "showServices": true,
+      "showSchedule": true
     },
     {
       "title": "services-varnish-gel",
@@ -77,7 +79,9 @@
       "smallImage": "img/portfolio/nail-varnish.jpeg",
       "price": {
         "ajuda": "€10,00"
-      }
+      },
+      "showServices": true,
+      "showSchedule": true
     },
     {
       "title": "services-nail",
@@ -86,7 +90,42 @@
       "smallImage": "img/portfolio/nail-normal.jpeg",
       "price": {
         "ajuda": "€5,00"
-      }
+      },
+      "showServices": true,
+      "showSchedule": true
+    },
+     {
+      "title": "services-nail-removal",
+      "service": "services-nail-removal",
+      "largeImage": "img/portfolio/services-nail-removal.png",
+      "smallImage": "img/portfolio/services-nail-removal.png",
+      "price": {
+        "ajuda": "€3,00"
+      },
+      "showServices": false,
+      "showSchedule": true
+    },
+    {
+      "title": "services-foot-nail",
+      "service": "services-foot-nail",
+      "largeImage": "img/portfolio/foot-nail.jpeg",
+      "smallImage": "img/portfolio/foot-nail.jpeg",
+      "price": {
+        "ajuda": "€15,00"
+      },
+      "showServices": true,
+      "showSchedule": true
+    },
+    {
+      "title": "services-foot-nail-varnish-gel",
+      "service": "services-foot-nail-varnish-gel",
+      "largeImage": "img/portfolio/foot-nail-varnish-gel.jpeg",
+      "smallImage": "img/portfolio/foot-nail-varnish-gel.jpeg",
+      "price": {
+        "ajuda": "€20,00"
+      },
+      "showServices": true,
+      "showSchedule": true
     }
   ],
   "Booking": [
@@ -128,7 +167,7 @@
   ],
   "Contact": {
     "addresses": [
-      { "name": "Ajuda", "address": "Rua Paz à ajuda, Ajuda - Lisboa, PT 1300-406"}
+      { "name": "Ajuda", "address": "Rua Paz à ajuda, Ajuda - Lisboa, PT 1300-453"}
     ],
     "phone": "+351 910831473",
     "email": "licettithays25@gmail.com",

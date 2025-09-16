@@ -17,18 +17,29 @@ const DISCOVERY_DOCS = [
 export default function Calendar({ scheduleConfig, services, locationType }) {
   // ESTADO INICIAL
   const [modo, setModo] = useState("servicos");
-  const [servicoSelecionado, setServicoSelecionado] = useState(null);
+  const [servicosSelecionados, setServicosSelecionados] = useState([]);
   const [horarioSelecionado, setHorarioSelecionado] = useState(null);
   const [horariosPorDia, setHorariosPorDia] = useState({});
   const [diaSelecionado, setDiaSelecionado] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [serviceType, setServiceType] = useState("hand");
   const hoje = new Date();
+
+  const handServices = services?.filter(service =>
+    !service.service.includes("foot") && service.showSchedule === true
+  ) || [];
+
+  const footServices = services?.filter(service =>
+    service.service.includes("foot") && service.showSchedule === true
+  ) || [];
+
+  const currentServices = serviceType === "hand" ? handServices : footServices;
 
   const { t } = useI18n();
 
   useEffect(() => {
   setModo("servicos");
-  setServicoSelecionado(null);
+  setServicosSelecionados([]);
   setDiaSelecionado(null);
   setHorarioSelecionado(null);
 }, [locationType]);
@@ -101,9 +112,20 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
     });
   }, [currentMonth, scheduleConfig]);
 
+  const toggleServiceSelection = (servico) => {
+    setServicosSelecionados(prev => {
+      const isSelected = prev.some(s => s.service === servico.service);
+      if (isSelected) {
+        return prev.filter(s => s.service !== servico.service);
+      } else {
+        return [...prev, servico];
+      }
+    });
+  };
+
   const handleSendMessage = () => {
     const whatsApp = new WhatsApp();
-    whatsApp.generateMessage(servicoSelecionado.service, locationType, diaSelecionado, horarioSelecionado, t);
+    whatsApp.generateMultipleServicesMessage(servicosSelecionados, locationType, diaSelecionado, horarioSelecionado, t);
     whatsApp.sendMessage()
   }
 
@@ -140,43 +162,123 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
             boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
           }}
         >
-          <h3>Escolha um serviço</h3>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {services.map((servico, idx) => (
-              <div
-                className="button"
-                key={idx}
-                onClick={() => {
-                  setServicoSelecionado(servico);
-                  setModo("calendario");
-                }}
-                style={{
-                  cursor: "pointer",
-                  border: "1px solid #ddd",
-                  borderRadius: "8px",
-                  padding: "12px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                }}
-              >
+          <h3>{t("choose-service")}</h3>
+
+          {/* Tabs para escolher tipo de serviço */}
+          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center", gap: "8px" }}>
+            <button
+              onClick={() => setServiceType("hand")}
+              style={{
+                padding: "6px 12px",
+                fontSize: "0.9rem",
+                border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
+                borderRadius: "6px",
+                background: serviceType === "hand" ? "#fff3f0" : "#fff",
+                cursor: "pointer",
+                fontWeight: serviceType === "hand" ? "bold" : "normal",
+                color: serviceType === "hand" ? "var(--primary-color)" : "#333",
+              }}
+            >
+              {t("hand-services")}
+            </button>
+
+            <button
+              onClick={() => setServiceType("foot")}
+              style={{
+                padding: "6px 12px",
+                fontSize: "0.9rem",
+                border: serviceType === "foot" ? "2px solid var(--primary-color)" : "1px solid #ccc",
+                borderRadius: "6px",
+                background: serviceType === "foot" ? "#fff3f0" : "#fff",
+                cursor: "pointer",
+                fontWeight: serviceType === "foot" ? "bold" : "normal",
+                color: serviceType === "foot" ? "var(--primary-color)" : "#333",
+              }}
+            >
+              {t("foot-services")}
+            </button>
+          </div>
+
+          <div className="calendar-services-grid" style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "space-between" }}>
+            {currentServices.map((servico, idx) => {
+              const isSelected = servicosSelecionados.some(s => s.service === servico.service);
+              return (
+                <div
+                  className="button calendar-service-item"
+                  key={idx}
+                  onClick={() => toggleServiceSelection(servico)}
+                  style={{
+                    cursor: "pointer",
+                    border: isSelected ? "2px solid var(--primary-color)" : "1px solid #ddd",
+                    borderRadius: "8px",
+                    padding: "8px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "8px",
+                    width: "calc(50% - 4px)",
+                    minHeight: "120px",
+                    backgroundColor: isSelected ? "#fff3f0" : "#fff",
+                    position: "relative",
+                  }}
+                >
+                  {isSelected && (
+                    <div style={{
+                      position: "absolute",
+                      top: "4px",
+                      right: "4px",
+                      backgroundColor: "var(--primary-color)",
+                      color: "white",
+                      borderRadius: "50%",
+                      width: "20px",
+                      height: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "12px",
+                      fontWeight: "bold"
+                    }}>
+                      ✓
+                    </div>
+                  )}
                 <img
                   src={servico.smallImage}
                   alt={servico.title}
                   style={{
-                    width: 60,
-                    height: 60,
+                    width: 70,
+                    height: 70,
                     borderRadius: "8px",
                     objectFit: "cover",
                   }}
                 />
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "1.35rem" }}>
                   <strong>{t(servico.service)}</strong>
                   <strong>{servico.price[locationType]}</strong>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
+
+          {/* Botão Continuar */}
+          {servicosSelecionados.length > 0 && (
+            <button
+              onClick={() => setModo("calendario")}
+              style={{
+                marginTop: "16px",
+                width: "100%",
+                padding: "12px",
+                backgroundColor: "var(--primary-color)",
+                color: "#fff",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+              }}
+            >
+              {t("continue")} ({servicosSelecionados.length} {servicosSelecionados.length === 1 ? t("service") : t("services")})
+            </button>
+          )}
         </div>
       </div>
 
@@ -217,7 +319,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
           >
             ✕
           </button>
-          <h3>Escolha uma data</h3>
+          <h3>{t("choose-date")}</h3>
           <NavigatorMonth
             currentMonth={currentMonth}
             setCurrentMonth={setCurrentMonth}
@@ -279,7 +381,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
           >
             ✕
           </button>
-          <h3>Horários disponíveis</h3>
+          <h3>{t("available-times")}</h3>
           <div
             style={{
               fontSize: "1.25rem",
@@ -353,11 +455,18 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
           >
             ✕
           </button>
-          <h3>Confirmar Agendamento</h3>
+          <h3>{t("confirm-booking")}</h3>
           <div style={{ marginTop: "16px", fontSize: "1rem" }}>
-            <p><strong>Serviço:</strong> {t(servicoSelecionado?.service)}</p>
-            <p><strong>Data:</strong> {diaSelecionado && new Date(diaSelecionado).toLocaleDateString("pt-PT")}</p>
-            <p><strong>Horário:</strong> {horarioSelecionado}</p>
+            <p><strong>{servicosSelecionados.length === 1 ? t("service") : t("services")}:</strong></p>
+            <ul style={{ margin: "8px 0", paddingLeft: "20px", textAlign: "left" }}>
+              {servicosSelecionados.map((servico, idx) => (
+                <li key={idx} style={{ marginBottom: "4px" }}>
+                  {t(servico.service)} - {servico.price[locationType]}
+                </li>
+              ))}
+            </ul>
+            <p><strong>{t("date")}:</strong> {diaSelecionado && new Date(diaSelecionado).toLocaleDateString("pt-PT")}</p>
+            <p><strong>{t("time")}:</strong> {horarioSelecionado}</p>
           </div>
           <button
             onClick={handleSendMessage}
@@ -374,7 +483,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
               cursor: "pointer",
             }}
           >
-            Agendar
+            {t("schedule")}
           </button>
         </div>
       </div>

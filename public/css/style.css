@@ -505,6 +505,91 @@ header .intro-text {
   margin-bottom: 40px;
 }
 
+#services .services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+#services .services-grid article {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#services .card-item {
+  padding: 25px;
+  width: 320px;
+  height: 330px;
+}
+
+#services .card-item img {
+  max-height: 240px;
+  object-fit: cover;
+  width: 100%;
+}
+
+#services .card-item h3 {
+  margin-top: 13px;
+}
+
+/* Medium screens (tablets) - 2 columns */
+@media (max-width: 1024px) {
+  #services .services-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #services .services-grid article {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+/* Small screens (mobile) - 1 column */
+@media (max-width: 768px) {
+  #services .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services .services-grid article {
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #services .card-item {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Calendar Service Selection Responsive */
+/* Default - 2 columns always */
+.calendar-services-grid {
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+}
+
+.calendar-service-item {
+  width: calc(50% - 4px) !important;
+}
+
+/* Very small screens (mobile) - 1 column */
+@media (max-width: 480px) {
+  .calendar-services-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .calendar-service-item {
+    width: 100% !important;
+    max-width: 200px !important;
+  }
+}
+
 /* Portfolio Section */
 #portfolio {
   padding: 10px 0;
@@ -934,6 +1019,11 @@ i.fa {
 .lang-switch-desktop { display: flex; }
 /* Mobile (até 767px) */
 @media (max-width: 767px) {
+   #services .services-grid article {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .desktop-logo {
     display: none !important;
   }
