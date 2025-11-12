@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { gapi } from "gapi-script";
 import ButtonCalendar from "./buttonCalendar";
 import NavigatorMonth from "./navigatorMonth";
@@ -23,7 +23,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
   const [diaSelecionado, setDiaSelecionado] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [serviceType, setServiceType] = useState("hand");
-  const hoje = new Date();
+  const hoje = useMemo(() => new Date(), []);
 
   const handServices = services?.filter(service =>
     !service.service.includes("foot") && service.showSchedule === true
