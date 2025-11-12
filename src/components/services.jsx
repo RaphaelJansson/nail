@@ -17,8 +17,8 @@ export const Services = (props) => {
    const currentServices = serviceType === "hand" ? handServices : footServices;
 
   return (
-    <section id="services" className="text-center card" role="main">
-      <div className="container">
+    <section id="services" className="text-center card" role="main" style={{ transition: "all 0.4s ease" }}>
+      <div className="container" style={{ transition: "all 0.4s ease" }}>
         <div className="section-title">
           <h2>{t("services-title")}</h2>
         </div>
@@ -56,13 +56,23 @@ export const Services = (props) => {
           </button>
         </div>
 
-        <div className="services-grid" role="list">
+        <div
+          className="services-grid"
+          role="list"
+          style={{
+            transition: "all 0.4s ease",
+            minHeight: "350px"
+          }}
+        >
           {currentServices.length > 0
             ? currentServices.map((d, i) => (
               <article
                 key={`${d.title}-${i}`}
                 className="col-sm-5 col-md-4 col-lg-4"
                 role="listitem"
+                style={{
+                  animation: "fadeIn 0.4s ease-in"
+                }}
               >
                 <div className="card-item">
                   <Image

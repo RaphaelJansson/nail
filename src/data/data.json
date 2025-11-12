@@ -67,7 +67,7 @@
       "largeImage": "img/portfolio/nail-gel.jpeg",
       "smallImage": "img/portfolio/nail-gel.jpeg",
       "price": {
-        "ajuda": "€15,00"
+        "ajuda": "€18,00"
       },
       "showServices": true,
       "showSchedule": true
@@ -78,7 +78,7 @@
       "largeImage": "img/portfolio/nail-varnish.jpeg",
       "smallImage": "img/portfolio/nail-varnish.jpeg",
       "price": {
-        "ajuda": "€10,00"
+        "ajuda": "€13,00"
       },
       "showServices": true,
       "showSchedule": true
@@ -89,7 +89,18 @@
       "largeImage": "img/portfolio/nail-normal.jpeg",
       "smallImage": "img/portfolio/nail-normal.jpeg",
       "price": {
-        "ajuda": "€5,00"
+        "ajuda": "€10,00"
+      },
+      "showServices": true,
+      "showSchedule": true
+    },
+    {
+      "title": "services-nail-art",
+      "service": "services-nail-art",
+      "largeImage": "img/portfolio/nail-art.jpg",
+      "smallImage": "img/portfolio/nail-art.jpg",
+      "price": {
+        "ajuda": "consult"
       },
       "showServices": true,
       "showSchedule": true
@@ -100,7 +111,7 @@
       "largeImage": "img/portfolio/services-nail-removal.png",
       "smallImage": "img/portfolio/services-nail-removal.png",
       "price": {
-        "ajuda": "€3,00"
+        "ajuda": "€5,00"
       },
       "showServices": false,
       "showSchedule": true

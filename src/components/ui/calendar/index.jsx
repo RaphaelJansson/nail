@@ -164,121 +164,166 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
         >
           <h3>{t("choose-service")}</h3>
 
-          {/* Tabs para escolher tipo de serviço */}
-          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center", gap: "8px" }}>
-            <button
-              onClick={() => setServiceType("hand")}
-              style={{
-                padding: "8px 16px",
-                fontSize: "15px",
-                border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
-                borderRadius: "6px",
-                background: serviceType === "hand" ? "#fff3f0" : "#fff",
-                cursor: "pointer",
-                fontWeight: serviceType === "hand" ? "bold" : "normal",
-                color: serviceType === "hand" ? "var(--primary-color)" : "#333",
-              }}
-            >
-              {t("hand-services")}
-            </button>
+          {/* Tabs para escolher tipo de serviço + Botão Carrinho */}
+          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "8px" }}>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button
+                onClick={() => setServiceType("hand")}
+                style={{
+                  padding: "8px 16px",
+                  fontSize: "1rem",
+                  border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
+                  borderRadius: "6px",
+                  background: serviceType === "hand" ? "#fff3f0" : "#fff",
+                  cursor: "pointer",
+                  fontWeight: serviceType === "hand" ? "bold" : "normal",
+                  color: serviceType === "hand" ? "var(--primary-color)" : "#333",
+                }}
+              >
+                {t("hand-services")}
+              </button>
+
+              <button
+                onClick={() => setServiceType("foot")}
+                style={{
+                  padding: "8px 16px",
+                  fontSize: "1rem",
+                  border: serviceType === "foot" ? "2px solid var(--primary-color)" : "1px solid #ccc",
+                  borderRadius: "6px",
+                  background: serviceType === "foot" ? "#fff3f0" : "#fff",
+                  cursor: "pointer",
+                  fontWeight: serviceType === "foot" ? "bold" : "normal",
+                  color: serviceType === "foot" ? "var(--primary-color)" : "#333",
+                }}
+              >
+                {t("foot-services")}
+              </button>
+            </div>
 
             <button
-              onClick={() => setServiceType("foot")}
+              onClick={() => servicosSelecionados.length > 0 && setModo("calendario")}
+              disabled={servicosSelecionados.length === 0}
               style={{
-                padding: "8px 16px",
-                fontSize: "1rem",
-                border: serviceType === "foot" ? "2px solid var(--primary-color)" : "1px solid #ccc",
-                borderRadius: "6px",
-                background: serviceType === "foot" ? "#fff3f0" : "#fff",
-                cursor: "pointer",
-                fontWeight: serviceType === "foot" ? "bold" : "normal",
-                color: serviceType === "foot" ? "var(--primary-color)" : "#333",
-              }}
-            >
-              {t("foot-services")}
-            </button>
-          </div>
-
-          <div className="calendar-services-grid" style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "space-between" }}>
-            {currentServices.map((servico, idx) => {
-              const isSelected = servicosSelecionados.some(s => s.service === servico.service);
-              return (
-                <div
-                  className="button calendar-service-item"
-                  key={idx}
-                  onClick={() => toggleServiceSelection(servico)}
-                  style={{
-                    cursor: "pointer",
-                    border: isSelected ? "2px solid var(--primary-color)" : "1px solid #ddd",
-                    borderRadius: "8px",
-                    padding: "8px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "6px",
-                    width: "calc(50% - 4px)",
-                    minHeight: "120px",
-                    backgroundColor: isSelected ? "#fff3f0" : "#fff",
-                    position: "relative",
-                  }}
-                >
-                  {isSelected && (
-                    <div style={{
-                      position: "absolute",
-                      top: "4px",
-                      right: "4px",
-                      backgroundColor: "var(--primary-color)",
-                      color: "white",
-                      borderRadius: "50%",
-                      width: "20px",
-                      height: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "12px",
-                      fontWeight: "bold"
-                    }}>
-                      ✓
-                    </div>
-                  )}
-                <img
-                  src={servico.smallImage}
-                  alt={servico.title}
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: "8px",
-                    objectFit: "cover",
-                  }}
-                />
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "15px" }}>
-                  <strong>{t(servico.service)}</strong>
-                  <strong style={{ color: "var(--primary-color)" }}>{servico.price[locationType]}</strong>
-                </div>
-              </div>
-            );
-            })}
-          </div>
-
-          {/* Botão Continuar */}
-          {servicosSelecionados.length > 0 && (
-            <button
-              onClick={() => setModo("calendario")}
-              style={{
-                marginTop: "16px",
-                width: "100%",
-                padding: "12px",
-                backgroundColor: "var(--primary-color)",
-                color: "#fff",
-                fontWeight: "bold",
+                padding: "0",
+                backgroundColor: "transparent",
                 border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
+                cursor: servicosSelecionados.length > 0 ? "pointer" : "not-allowed",
+                position: "relative",
               }}
             >
-              {t("continue")} ({servicosSelecionados.length} {servicosSelecionados.length === 1 ? t("service") : t("services")})
+              <i
+                className="fa fa-cart-arrow-down"
+                style={{
+                  fontSize: "18px",
+                  width: "42px",
+                  height: "42px",
+                  padding: "12px 0",
+                  background: servicosSelecionados.length > 0
+                    ? "linear-gradient(to right, var(--primary-color) 0%, var(--primary-color-light) 100%)"
+                    : "#ccc",
+                  color: "#fff",
+                  borderRadius: "50%",
+                  transition: "all 0.3s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              ></i>
+              {servicosSelecionados.length > 0 && (
+                <span style={{
+                  position: "absolute",
+                  top: "-4px",
+                  right: "-4px",
+                  backgroundColor: "#ff4444",
+                  color: "#fff",
+                  borderRadius: "50%",
+                  width: "24px",
+                  height: "24px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.75rem",
+                  fontWeight: "bold",
+                  border: "2px solid #fff"
+                }}>
+                  {servicosSelecionados.length}
+                </span>
+              )}
             </button>
-          )}
+          </div>
+
+          <div style={{
+            maxHeight: "300px",
+            overflowY: "scroll",
+            paddingRight: "4px"
+          }}>
+            <div className="calendar-services-grid" style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px",
+              justifyContent: "space-between",
+              paddingBottom: "8px"
+            }}>
+              {currentServices.map((servico, idx) => {
+                const isSelected = servicosSelecionados.some(s => s.service === servico.service);
+                return (
+                  <div
+                    className="button calendar-service-item"
+                    key={idx}
+                    onClick={() => toggleServiceSelection(servico)}
+                    style={{
+                      cursor: "pointer",
+                      border: isSelected ? "2px solid var(--primary-color)" : "1px solid #ddd",
+                      borderRadius: "8px",
+                      padding: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "6px",
+                      width: "calc(50% - 4px)",
+                      minHeight: "120px",
+                      backgroundColor: isSelected ? "#fff3f0" : "#fff",
+                      position: "relative",
+                    }}
+                  >
+                    {isSelected && (
+                      <div style={{
+                        position: "absolute",
+                        top: "4px",
+                        right: "4px",
+                        backgroundColor: "var(--primary-color)",
+                        color: "white",
+                        borderRadius: "50%",
+                        width: "20px",
+                        height: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "12px",
+                        fontWeight: "bold"
+                      }}>
+                        ✓
+                      </div>
+                    )}
+                  <img
+                    src={servico.smallImage}
+                    alt={servico.title}
+                    style={{
+                      width: 60,
+                      height: 60,
+                      borderRadius: "8px",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", fontSize: "15px" }}>
+                    <strong>{t(servico.service)}</strong>
+                    <strong style={{ color: "var(--primary-color)" }}>{t(servico.price[locationType])}</strong>
+                  </div>
+                </div>
+              );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
