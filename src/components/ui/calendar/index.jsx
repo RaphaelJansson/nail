@@ -110,7 +110,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
 
       setHorariosPorDia(horarios);
     });
-  }, [currentMonth, scheduleConfig]);
+  }, [currentMonth, scheduleConfig, hoje]);
 
   const toggleServiceSelection = (servico) => {
     setServicosSelecionados(prev => {

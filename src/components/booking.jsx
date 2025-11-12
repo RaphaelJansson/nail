@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const Booking = ({ data }) => {
   const { t } = useI18n();
-  const [locationType, setLocationType] = useState("ajuda"); // Default to "ajuda"
+  const [locationType] = useState("ajuda"); // Default to "ajuda"
   const bookingData = data?.booking || [];  
   const scheduleConfig = Array.isArray(bookingData)
     ? bookingData.find((cfg) => cfg[locationType])?.[locationType]
