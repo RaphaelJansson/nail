@@ -62,12 +62,12 @@
   ],
   "Services": [
     {
-      "title": "services-nail-gel",
-      "service": "services-nail-gel",
-      "largeImage": "img/portfolio/nail-gel.jpeg",
-      "smallImage": "img/portfolio/nail-gel.jpeg",
+      "title": "services-nail",
+      "service": "services-nail",
+      "largeImage": "img/portfolio/nail-normal.jpeg",
+      "smallImage": "img/portfolio/nail-normal.jpeg",
       "price": {
-        "ajuda": "€18,00"
+        "ajuda": "€10,00"
       },
       "showServices": true,
       "showSchedule": true
@@ -78,18 +78,29 @@
       "largeImage": "img/portfolio/nail-varnish.jpeg",
       "smallImage": "img/portfolio/nail-varnish.jpeg",
       "price": {
-        "ajuda": "€13,00"
+        "ajuda": "€15,00"
       },
       "showServices": true,
       "showSchedule": true
     },
     {
-      "title": "services-nail",
-      "service": "services-nail",
-      "largeImage": "img/portfolio/nail-normal.jpeg",
-      "smallImage": "img/portfolio/nail-normal.jpeg",
+      "title": "services-nail-gel",
+      "service": "services-nail-gel",
+      "largeImage": "img/portfolio/nail-gel.jpeg",
+      "smallImage": "img/portfolio/nail-gel.jpeg",
       "price": {
-        "ajuda": "€10,00"
+        "ajuda": "€20,00"
+      },
+      "showServices": true,
+      "showSchedule": true
+    },
+    {
+      "title": "services-nail-extension",
+      "service": "services-nail-extension",
+      "largeImage": "img/portfolio/nail-extension.jpeg",
+      "smallImage": "img/portfolio/nail-extension.jpeg",
+      "price": {
+        "ajuda": "€31,00"
       },
       "showServices": true,
       "showSchedule": true
@@ -111,9 +122,20 @@
       "largeImage": "img/portfolio/services-nail-removal.png",
       "smallImage": "img/portfolio/services-nail-removal.png",
       "price": {
-        "ajuda": "€5,00"
+        "ajuda": "€7,00"
       },
       "showServices": false,
+      "showSchedule": true
+    },
+    {
+      "title": "services-nail-refil-extension",
+      "service": "services-nail-refil-extension",
+      "largeImage": "img/portfolio/services-nail-refil-extension.jpeg",
+      "smallImage": "img/portfolio/services-nail-refil-extension.jpeg",
+      "price": {
+        "ajuda": "€24,00"
+      },
+      "showServices": true,
       "showSchedule": true
     },
     {

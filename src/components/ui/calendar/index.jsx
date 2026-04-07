@@ -174,7 +174,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                   fontSize: "1rem",
                   border: serviceType === "hand" ? "2px solid var(--primary-color)" : "1px solid #ccc",
                   borderRadius: "6px",
-                  background: serviceType === "hand" ? "#fff3f0" : "#fff",
+                  background: serviceType === "hand" ? "var(--background-color)" : "#fff",
                   cursor: "pointer",
                   fontWeight: serviceType === "hand" ? "bold" : "normal",
                   color: serviceType === "hand" ? "var(--primary-color)" : "#333",
@@ -190,7 +190,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                   fontSize: "1rem",
                   border: serviceType === "foot" ? "2px solid var(--primary-color)" : "1px solid #ccc",
                   borderRadius: "6px",
-                  background: serviceType === "foot" ? "#fff3f0" : "#fff",
+                  background: serviceType === "foot" ? "var(--background-color)" : "#fff",
                   cursor: "pointer",
                   fontWeight: serviceType === "foot" ? "bold" : "normal",
                   color: serviceType === "foot" ? "var(--primary-color)" : "#333",
@@ -282,7 +282,7 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
                       gap: "6px",
                       width: "calc(50% - 4px)",
                       minHeight: "120px",
-                      backgroundColor: isSelected ? "#fff3f0" : "#fff",
+                      backgroundColor: isSelected ? "var(--background-color)" : "#fff",
                       position: "relative",
                     }}
                   >
@@ -500,24 +500,39 @@ export default function Calendar({ scheduleConfig, services, locationType }) {
           >
             ✕
           </button>
-          <h3>{t("confirm-booking")}</h3>
+          <h3>{t("send-booking")}</h3>
           <div style={{ marginTop: "16px", fontSize: "1rem" }}>
             <p><strong>{servicosSelecionados.length === 1 ? t("service") : t("services")}:</strong></p>
-            <ul style={{ margin: "8px 0", paddingLeft: "20px", textAlign: "left"}}>
+            <div style={{ margin: "8px 0", border: "1px solid #ddd", borderRadius: "6px", overflow: "hidden" }}>
               {servicosSelecionados.map((servico, idx) => (
-                <li key={idx} style={{ marginBottom: "4px", fontSize: "15px"   }}>
-                  {t(servico.service)} - {servico.price[locationType]}
-                </li>
+                <div
+                  key={idx}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "8px 12px",
+                    fontSize: "14px",
+                    borderBottom: idx < servicosSelecionados.length - 1 ? "1px solid #ddd" : "none",
+                    backgroundColor: idx % 2 === 0 ? "#fff" : "#fafafa",
+                  }}
+                >
+                  <span>{t(servico.service)}</span>
+                  <strong style={{ color: "var(--primary-color)" }}>{servico.price[locationType]}</strong>
+                </div>
               ))}
-            </ul>
+            </div>
             <p><strong>{t("date")}:</strong> {diaSelecionado && new Date(diaSelecionado).toLocaleDateString("pt-PT")}</p>
             <p><strong>{t("time")}:</strong> {horarioSelecionado}</p>
           </div>
+          <p style={{ marginTop: "16px", fontSize: "13px", color: "#c0392b" }}>
+            {t("alert-booking")}
+          </p>
           <button
             onClick={handleSendMessage}
             className="button"
             style={{
-              marginTop: "20px",
+              marginTop: "8px",
               width: "100%",
               padding: "12px",
               backgroundColor: "var(--primary-color)",

@@ -27,7 +27,7 @@ export const Booking = ({ data }) => {
               padding: "8px 16px",
               border: locationType === "ajuda" ? "2px solid var(--primary-color)" : "1px solid #ccc",
               borderRadius: "6px",
-              background: locationType === "ajuda" ? "#fff3f0" : "#fff",
+              background: locationType === "ajuda" ? "var(--background-color)" : "#fff",
               cursor: "pointer",
               fontWeight: locationType === "ajuda" ? "bold" : "normal",
             }}

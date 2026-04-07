@@ -24,7 +24,7 @@ export const Header = () => {
       <div className="container">
         <div className="col-xs-12 col-md-6 text-center" style={{ padding: 0}}>
           <img 
-            src="img/head.png" 
+            src="img/head2.png"
             className="img-responsive center-block" 
             alt="Thays Ramos professional nail artist showcasing nail art services in Lisboa"
             loading="eager"

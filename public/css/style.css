@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #753C1F;
-  --primary-color-light: #aa6f52;
+  --primary-color: #474E2D  ;
+  --primary-color-light: #ADB995;
   --secondary-color: #333;
   --text-color: #777;
-  --background-color: #FCEFDE;
+  --background-color: #E9E6D7;
 }
 
 body,
@@ -492,7 +492,7 @@ header .intro-text {
   font-family: 'Playwrite';
   font-weight: 400;
   font-style: normal;
-  font-size: x-large;
+  font-size: large;
   padding: 5px 0;
   color: #444;
 }
